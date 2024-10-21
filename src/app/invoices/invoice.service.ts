@@ -1,7 +1,8 @@
 import { Injectable, signal, computed } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Invoice } from './types';
+import invoices from './invoices.data';
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +28,8 @@ export class InvoiceService {
   constructor(private http: HttpClient) { }
 
   fetchInvoices(): Observable<Invoice[]> {
-    return this.http.get<Invoice[]>('https://12990764-7090-4dd0-83c0-a964ec76f4da.mock.pstmn.io/invoices');
+    // return this.http.get<Invoice[]>('https://12990764-7090-4dd0-83c0-a964ec76f4da.mock.pstmn.io/invoices');
+    return of(invoices);
   }
 
   setInvoices(invoices: Invoice[]): void {
