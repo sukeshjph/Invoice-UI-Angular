@@ -13,7 +13,7 @@ export class InvoiceService {
 
   private selectedFilterSignal = signal<string | undefined>(undefined);
 
-  // Computed signals replace filter pipe transforms as they can filter the bound resuklts based on data
+  // Computed signals replace filter pipe transforms as they can filter the bound results based on data
   private filteredInvoicesSignal = computed(() => {
     const selectedFilter = this.selectedFilterSignal();
     const invoices = this.invoicesSignal();

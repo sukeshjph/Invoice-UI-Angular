@@ -1,0 +1,26 @@
+<div class="flex">
+  <div>
+    <h1>Invoices</h1>
+  </div>
+  <div class="flex flex-row">
+    <div class="card filterSelect">
+      <form [formGroup]="formGroup!">
+        <p-dropdown
+          [options]="filters"
+          optionLabel="key"
+          optionValue="value"
+          (change)="onFilterEventChange($event)"
+          formControlName="selectedFilter"
+        />
+      </form>
+    </div>
+    <div>
+      <button
+        pButton
+        pRipple
+        label="New Invoice"
+        class="p-button-success"
+      ></button>
+    </div>
+  </div>
+</div>
