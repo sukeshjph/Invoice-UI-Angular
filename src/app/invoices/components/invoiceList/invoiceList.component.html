@@ -1,9 +1,13 @@
 <div class="card">
-  <p-table [value]="this.invoices" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table
+    [value]="this.invoices"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    class="bg-white"
+  >
     <ng-template pTemplate="body" let-invoice>
       <tr>
         <td>
-          <span class="font-semi-bold">{{
+          <span class="font-bold">{{
             getTransformedColumnValue("id", invoice.id)
           }}</span>
         </td>
@@ -31,6 +35,9 @@
             >
           </div>
         </td>
+      </tr>
+      <tr class="last:hidden">
+        <td class="bg-slate-100 h-2" colSpan="5"></td>
       </tr>
     </ng-template>
   </p-table>

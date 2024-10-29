@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
+import { ButtonModule } from 'primeng/button';
+import { ImageModule } from 'primeng/image';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 interface Filter {
@@ -12,7 +14,7 @@ interface Filter {
     selector: 'app-invoice-header',
     standalone: true,
     imports: [
-        CommonModule, DropdownModule, ReactiveFormsModule
+        CommonModule, DropdownModule, ReactiveFormsModule, ImageModule, ButtonModule
     ],
     templateUrl: './invoiceHeader.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,

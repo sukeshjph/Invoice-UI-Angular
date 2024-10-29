@@ -1,9 +1,9 @@
-<div class="flex">
+<div class="flex justify-between">
   <div>
     <h1>Invoices</h1>
   </div>
-  <div class="flex flex-row">
-    <div class="card filterSelect">
+  <div class="flex flex-row items-center">
+    <div class="card filterSelect m-2.5 min-w-5">
       <form [formGroup]="formGroup!">
         <p-dropdown
           [options]="filters"
@@ -11,16 +11,12 @@
           optionValue="value"
           (change)="onFilterEventChange($event)"
           formControlName="selectedFilter"
+          placeholder="Filter by Status"
         />
       </form>
     </div>
-    <div>
-      <button
-        pButton
-        pRipple
-        label="New Invoice"
-        class="p-button-success"
-      ></button>
-    </div>
+    <button class="cursor-pointer border-0 bg-transparent">
+      <p-image src="/assets/icon-button-invoice.svg" alt="New Invoice" />
+    </button>
   </div>
 </div>
