@@ -20,6 +20,7 @@ import { InvoiceListComponent } from "./components/invoiceList/invoiceList.compo
   providers: [InvoiceService],
 })
 export class InvoicesComponent implements OnInit {
+  invoiceCount: number = 0;
   constructor(private InvoiceService: InvoiceService) { }
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class InvoicesComponent implements OnInit {
     this.InvoiceService.fetchInvoices().subscribe({
       next: (data: Invoice[]) => {
         this.InvoiceService.setInvoices(data);
+        this.invoiceCount = data.length;
       },
       error: (err) => {
         console.error('Error fetching invoices', err);

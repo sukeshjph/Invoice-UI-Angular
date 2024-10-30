@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
 import { ButtonModule } from 'primeng/button';
 import { ImageModule } from 'primeng/image';
@@ -21,6 +21,7 @@ interface Filter {
 })
 export class InvoiceHeaderComponent implements OnInit {
     formGroup: FormGroup | undefined;
+    @Input() invoiceCount: number = 0;
     @Output() onFilterChange = new EventEmitter<string>();
 
     filters: Filter[] = [
