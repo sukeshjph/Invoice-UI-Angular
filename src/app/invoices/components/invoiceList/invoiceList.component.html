@@ -1,26 +1,22 @@
 <div class="card">
-  <p-table
-    [value]="this.invoices"
-    [tableStyle]="{ 'min-width': '50rem' }"
-    class="bg-white"
-  >
+  <p-table [value]="this.invoices" class="bg-white">
     <ng-template pTemplate="body" let-invoice>
       <tr>
-        <td>
+        <td class="p-1 pl-3">
           <span class="font-bold">{{
             getTransformedColumnValue("id", invoice.id)
           }}</span>
         </td>
-        <td>
+        <td class="p-1">
           <span class="text-violet-400">{{
             getTransformedColumnValue("paymentDue", invoice.paymentDue)
           }}</span>
         </td>
-        <td>
+        <td class="p-1">
           <span class="text-indigo-400">{{ invoice.clientName }}</span>
         </td>
         <td>{{ invoice.total | currency : "GBP" }}</td>
-        <td>
+        <td class="p-1">
           <div
             class="w-3/5 p-2 flex items-center"
             [ngClass]="getStatusBgClass(invoice.status)"
@@ -37,7 +33,7 @@
         </td>
       </tr>
       <tr class="last:hidden">
-        <td class="bg-slate-100 h-2" colSpan="5"></td>
+        <td class="bg-slate-100 p-1" colSpan="5"></td>
       </tr>
     </ng-template>
   </p-table>
