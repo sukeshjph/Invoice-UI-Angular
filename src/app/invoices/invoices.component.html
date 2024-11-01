@@ -1,7 +1,7 @@
 <div class="flex flex-col w-11/12">
   <app-invoice-header
     (onFilterChange)="onUpdateFilter($event)"
-    [invoiceCount]="invoiceCount"
+    [invoiceCount]="InvoiceService.getInvoiceCount()"
   />
   <app-invoice-list [invoices]="filteredInvoices" />
 </div>

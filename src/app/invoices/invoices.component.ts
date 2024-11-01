@@ -9,6 +9,7 @@ import { InvoiceService } from './invoice.service';
 import { InvoiceHeaderComponent } from './components/invoiceHeader/invoiceHeader.component';
 import { Invoice } from './types';
 import { InvoiceListComponent } from "./components/invoiceList/invoiceList.component";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-invoices',
@@ -20,20 +21,20 @@ import { InvoiceListComponent } from "./components/invoiceList/invoiceList.compo
   providers: [InvoiceService],
 })
 export class InvoicesComponent implements OnInit {
-  invoiceCount: number = 0;
-  constructor(private InvoiceService: InvoiceService) { }
+  // invoicesLocal: Invoice[] = [];
+  constructor(public InvoiceService: InvoiceService) { }
 
   ngOnInit(): void {
-    // Fetch invoices and set them in the signal
-    this.InvoiceService.fetchInvoices().subscribe({
-      next: (data: Invoice[]) => {
-        this.InvoiceService.setInvoices(data);
-        this.invoiceCount = data.length;
-      },
-      error: (err) => {
-        console.error('Error fetching invoices', err);
-      },
-    });
+    // Fetch invoices
+    this.InvoiceService.fetchInvoices();
+
+    // Subscribe to the service's BehaviorSubject
+    // this.InvoiceService.getInvoiceSubjectAsObservable().subscribe({
+    //   next: (data: Invoice[]) => {
+    //     this.invoicesLocal = data;
+    //   },
+    //   error: (err) => console.error('Error in Invoice subscription', err),
+    // });
   }
 
   onUpdateFilter(selectedFilterValue: any): void {
